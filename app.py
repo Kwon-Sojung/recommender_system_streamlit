@@ -42,10 +42,12 @@ if not options:
 def to_img_tag(path):
     return '<img src="'+ path + '" width="50" >'
 
+
 if options:
     genre_recommend_df = genre_model(options)
     genre_recommend_df = genre_recommend_df[["title","image"]]
 
     df = HTML(genre_recommend_df.to_html(escape=False,formatters=dict(image=to_img_tag)))
 
-    st.dataframe(df)
+    # st.dataframe(df)
+    st.write(df)
