@@ -3,11 +3,12 @@ import pandas as pd
 import numpy as np
 
 from sklearn.metrics.pairwise import cosine_similarity
-PATH = './input/'
-df = pd.read_csv(PATH + "webtoon_total_final.csv")
+
+df = pd.read_csv("webtoon_total_final.csv")
 df = df[['title','score', 'genre']]
 df.genre = df.genre.str.strip('['']')
 tmp = pd.get_dummies(df.genre)
+
 def col_change(df):
     for col in df.columns:
         if ',' in col:
@@ -16,13 +17,14 @@ def col_change(df):
             df[col_sep[1]] = df[col_sep[1]] + df[col]
             df.drop(columns=[f'{col}'], inplace=True)
     return df
+
 col_change(tmp)
-tmp
+
 genre_df = col_change(pd.get_dummies(df.genre))
 df = pd.concat([df.title, df.score, genre_df], axis=1)
-df
+
 df.columns = df.columns.str.strip('\'')
-df
+
 def one_genre(title):
     """
     장르 하나의 
