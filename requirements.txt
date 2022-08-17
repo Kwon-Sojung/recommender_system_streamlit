@@ -7,3 +7,4 @@ matplotlib
 koreanize_matplotlib
 scikit-learn
 IPython
+streamlit-aggrid
