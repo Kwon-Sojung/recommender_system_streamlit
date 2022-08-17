@@ -35,6 +35,6 @@ if not options:
  
 if options:
     genre_recommend_df = genre_model(options)
-    st.write(genre_recommend_df["title"][0])
+    st.dataframe(genre_recommend_df)
     
    
