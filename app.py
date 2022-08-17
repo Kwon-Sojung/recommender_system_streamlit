@@ -1,5 +1,6 @@
 import streamlit as st
 from PIL import Image
+import pandas as pd
 
 st.set_page_config(
     page_title="Webtoon Recommender App Page Introduction",
@@ -8,7 +9,7 @@ st.set_page_config(
 )
 
 title_name = []
-st.markdown("# 소개글 📚")
+st.markdown("# 웹툰 추천 📚")
 # title = st.text_input("👇 정확한 웹툰 제목을 입력하고 Enter를 눌러주세요. (카카오/네이버 웹툰만 입력 가능)")
 # st.empty()
 # st.write("""—--""")
@@ -24,8 +25,17 @@ st.markdown("# 소개글 📚")
 #    print(st.write(title_name))
 
 options = st.multiselect(
-     'What are your favorite colors',
+     '👇 선호하는 웹툰 제목을 입력하고 Enter를 눌러주세요. (복수 입력 가능하며, 카카오/네이버 웹툰만 입력 가능)',
      ['Green', 'Yellow', 'Red', 'Blue', '바니와 오빠들']
      )
 
-st.write('You selected:', options)
+# st.write('You selected:', options)
+
+st.empty()
+st.write("""—--""")
+st.empty()
+
+if not options:
+    print(st.empty().info("입력 기다리는 중…⏳"))
+    image = Image.open('wating.jpg')
+    st.image(image)
