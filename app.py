@@ -5,6 +5,7 @@ import numpy as np
 from sklearn.metrics.pairwise import cosine_similarity
 from model import genre_model
 
+
 st.set_page_config(
     page_title="Webtoon Recommender App Page Introduction",
     page_icon="📚",
