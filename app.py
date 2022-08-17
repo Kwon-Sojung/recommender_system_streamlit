@@ -23,12 +23,6 @@ options = st.multiselect(
 
 select_area = st.empty()
 st.write("""---""")
-placeholder = st.empty()
-movie_aria = st.empty()
-
-st.write("""---""")
-rating_area = st.empty()
-tab_area = st.empty()
 
 if not options:
     print(st.empty().info("입력 기다리는 중…⏳"))
