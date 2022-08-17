@@ -6,12 +6,6 @@ title = st.text_input("👇 정확한 웹툰 제목을 입력하고 Enter를 눌
 st.empty()
 
 st.write("""---""")
-
-# placeholder = st.empty()
-# webtoon_area = st.empty()
-
-st.write("""---""")
-st.empty()
 st.empty()
 
 if not title:
