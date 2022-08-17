@@ -7,4 +7,7 @@ matplotlib
 koreanize_matplotlib
 scikit-learn
 IPython
+transformers
+torch
+tensorflow
 streamlit-aggrid
