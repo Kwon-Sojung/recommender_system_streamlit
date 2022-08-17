@@ -12,7 +12,7 @@ st.markdown("# 소개글 📚")
 title = st.text_input("👇 정확한 웹툰 제목을 입력하고 Enter를 눌러주세요. (카카오/네이버 웹툰만 입력 가능)")
 st.empty()
 title_name.append(title)
-st.write("""—""")
+st.write("""—--""")
 st.empty()
 
 if not title:
@@ -21,4 +21,4 @@ if not title:
     st.image(image)
 
 else:
-   print(title_name)
+   print(st.write(title_name))
