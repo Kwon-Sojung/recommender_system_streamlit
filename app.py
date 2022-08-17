@@ -4,6 +4,7 @@ import pandas as pd
 import numpy as np
 from sklearn.metrics.pairwise import cosine_similarity
 from genre_model import genre_model
+from IPython.core.display import HTML
 
 
 st.set_page_config(
