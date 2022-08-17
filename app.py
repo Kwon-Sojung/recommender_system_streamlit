@@ -1,4 +1,5 @@
 import streamlit as st
+from PIL import Image
 
 st.set_page_config(
     page_title="Webtoon Recommender App",
@@ -17,7 +18,7 @@ st.empty()
 if not title:
     print(st.empty().info("입력 기다리는 중...⏳"))
  
-# from PIL import Image
-# image = Image.open('wating.jpg')
+from PIL import Image
+image = Image.open('files/wating.jpg')
 
-# st.image(image)
+st.image(image)
