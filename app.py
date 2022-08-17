@@ -35,6 +35,6 @@ if not options:
  
 if options:
     genre_recommend_df = genre_model(options)
-    st.dataframe(genre_recommend_df)
+    st.get_input(genre_recommend_df["title"].iloc[0])
     
    
