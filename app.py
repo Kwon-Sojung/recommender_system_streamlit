@@ -17,7 +17,8 @@ st.empty()
 
 if not title:
     print(st.empty().info("입력 기다리는 중...⏳"))
+    image = Image.open('wating.jpg')
+    st.image(image)
 
     
-image = Image.open('wating.jpg')
-st.image(image)
+
