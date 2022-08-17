@@ -1,6 +1,10 @@
 import streamlit as st
 from PIL import Image
 import pandas as pd
+import numpy as np
+
+from sklearn.metrics.pairwise import cosine_similarity
+
 
 st.set_page_config(
     page_title="Webtoon Recommender App Page Introduction",
