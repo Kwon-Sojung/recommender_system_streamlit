@@ -5,7 +5,7 @@ import numpy as np
 from sklearn.metrics.pairwise import cosine_similarity
 
 df = pd.read_csv("webtoon_total_final.csv")
-df = df[['title','score', 'genre']]
+df = df[['title','score', 'genre', 'image']]
 df.genre = df.genre.str.strip('['']')
 tmp = pd.get_dummies(df.genre)
 
@@ -21,7 +21,7 @@ def col_change(df):
 col_change(tmp)
 
 genre_df = col_change(pd.get_dummies(df.genre))
-df = pd.concat([df.title, df.score, genre_df], axis=1)
+df = pd.concat([df.title, df.score, genre_df ,df.image], axis=1)
 
 df.columns = df.columns.str.strip('\'')
 
