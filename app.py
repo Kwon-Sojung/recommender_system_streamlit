@@ -1,7 +1,6 @@
+import streamlit as st
+
 def app():
-    API_CONFIG = config.NaverOpenAPIConfig
-    tokenizer = load_tokenizer()
-    model = load_model()
 
     st.title("웹툰 추천")
     title = st.text_input("정확한 웹툰 제목을 입력하고 Enter를 눌러주세요. (카카오/네이버 웹툰만 입력 가능)")
