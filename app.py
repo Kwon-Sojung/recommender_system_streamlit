@@ -24,9 +24,12 @@ st.markdown("# 웹툰 추천 📚")
 # else:
 #    print(st.write(title_name))
 
+webtoon_df = pd.read_csv("webtoon_total_final.csv")
+title_list = webtoon_df["title"].tolist()
+
 options = st.multiselect(
      '👇 선호하는 웹툰 제목을 입력하고 Enter를 눌러주세요. (복수 입력 가능하며, 카카오/네이버 웹툰만 입력 가능)',
-     ['Green', 'Yellow', 'Red', 'Blue', '바니와 오빠들']
+     title_list
      )
 
 # st.write('You selected:', options)
@@ -39,3 +42,5 @@ if not options:
     print(st.empty().info("입력 기다리는 중…⏳"))
     image = Image.open('wating.jpg')
     st.image(image)
+    
+    
