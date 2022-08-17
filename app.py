@@ -101,3 +101,4 @@ def genres(title_list):
     
     
 
+st.dataframe(genre_list(options))
