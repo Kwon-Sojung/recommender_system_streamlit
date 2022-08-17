@@ -32,7 +32,7 @@ if not options:
     print(st.empty().info("입력 기다리는 중…⏳"))
     image = Image.open('wating.jpg')
     st.image(image)
+ else:
+    st.dataframe(genre_model(options))
     
-    
-
-st.dataframe(genre_model(options))   
+   
