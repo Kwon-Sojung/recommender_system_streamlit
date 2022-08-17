@@ -1,6 +1,13 @@
 import streamlit as st
 
+st.set_page_config(
+    page_title="Webtoon Recommender App",
+    page_icon="📚",
+    layout="wide",
+)
 
+
+st.markdown("# 웹툰 추천 📚")
 st.title("웹툰 추천")
 title = st.text_input("👇 정확한 웹툰 제목을 입력하고 Enter를 눌러주세요. (카카오/네이버 웹툰만 입력 가능)")
 st.empty()
