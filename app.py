@@ -37,7 +37,6 @@ if options:
     genre_recommend_df = genre_model(options)
     for l in range(10):
         st.empty()
-        st.empty()
         st.write(genre_recommend_df["title"].iloc[l])
     
    
