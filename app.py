@@ -34,6 +34,7 @@ if not options:
     st.image(image)
  
 if options:
-    st.dataframe(genre_model(options))
+    genre_recommend_df = genre_model(options)
+    st.dataframe(genre_recommend_df[["title"]])
     
    
