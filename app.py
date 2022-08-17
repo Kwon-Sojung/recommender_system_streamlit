@@ -1,6 +1,7 @@
 import streamlit as st
 from PIL import Image
 import pandas as pd
+import model
 
 st.set_page_config(
     page_title="Webtoon Recommender App Page Introduction",
@@ -30,3 +31,4 @@ if not options:
     st.image(image)
     
     
+st.dataframe(genre_model(options))
