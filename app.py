@@ -23,7 +23,7 @@ options = st.multiselect(
      '👇 선호하는 웹툰 제목을 입력하고 Enter를 눌러주세요. (복수 입력 가능하며, 카카오/네이버 웹툰만 입력 가능)',
      title_list
      )
-df = []
+
 
 # st.write('You selected:', options)
 
@@ -41,11 +41,16 @@ if not options:
     
    
 def to_img_tag(path):
-    return '<img src="'+ path + '" width="50" >'
+    return '<img src="'+ path + '" width="70" >'
 
 
 if options:
     genre_recommend_df = genre_model(options)
+       
+    for i in range(len(genre_recommend_df)):
+        if type(genre_recommend_df["image"][i]) != str:
+            genre_recommend_df["image"][i] = genre_recommend_df["image"][i][0]
+        
     genre_recommend_df['url'] = genre_recommend_df['image']
     genre_recommend_df = genre_recommend_df[["title","image","url"]]
 
