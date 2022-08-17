@@ -17,8 +17,7 @@ st.empty()
 
 if not title:
     print(st.empty().info("입력 기다리는 중...⏳"))
- 
-from PIL import Image
-image = Image.open('files/wating.jpg')
+
+image = Image.open('wating.jpg')
 
 st.image(image)
