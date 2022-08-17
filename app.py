@@ -15,5 +15,5 @@ st.write("""---""")
 st.empty()
 
 if not title:
-    print(st.empty().info("입력 기다리는 중... "))
+    print(st.empty().info("입력 기다리는 중...⏳"))
  
