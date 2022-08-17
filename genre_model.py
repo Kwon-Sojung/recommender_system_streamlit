@@ -4,8 +4,8 @@ import numpy as np
 
 from sklearn.metrics.pairwise import cosine_similarity
 
-df = pd.read_csv("webtoon_total_final.csv")
-df = df[['title','score', 'genre']]
+df_origin = pd.read_csv("webtoon_total_final.csv")
+df = df_origin[['title','score', 'genre']]
 df.genre = df.genre.str.strip('['']')
 tmp = pd.get_dummies(df.genre)
 
@@ -58,7 +58,8 @@ def genre_model(title_list):
     sorted_df = df.loc[max_index].sort_values(by='score', ascending=False)
 
     if len(max_index) < 10:
-        return sorted_df
+        indlist = sorted_df.index
+        return df_origin.loc[indlist]
     
     else:
         min_score = sorted_df.iloc[9].score
@@ -71,5 +72,6 @@ def genre_model(title_list):
         randlist = random.sample(range(ind, ind + randnum), 10 - ind)
         tdf1, tdf2 = sorted_df[:ind], sorted_df.iloc[randlist]
         sorted_df = pd.concat([tdf1, tdf2])
+        indlist = sorted_df.index
 
-        return sorted_df
+        return df_origin.loc[indlist]
