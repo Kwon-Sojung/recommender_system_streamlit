@@ -9,7 +9,7 @@ st.set_page_config(
 
 title_name = []
 st.markdown("# 소개글 📚")
-title = st.text_input("👇 정확한 웹툰 제목을 입력하고 Enter를 눌러주세요. (카카오/네이버 웹툰만 입력 가능)")
+# title = st.text_input("👇 정확한 웹툰 제목을 입력하고 Enter를 눌러주세요. (카카오/네이버 웹툰만 입력 가능)")
 # st.empty()
 # st.write("""—--""")
 # st.empty()
@@ -25,7 +25,7 @@ title = st.text_input("👇 정확한 웹툰 제목을 입력하고 Enter를 눌
 
 options = st.multiselect(
      'What are your favorite colors',
-     ['Green', 'Yellow', 'Red', 'Blue'],
-     ['Yellow', 'Red'])
+     ['Green', 'Yellow', 'Red', 'Blue', '바니와 오빠들']
+     )
 
 st.write('You selected:', options)
