@@ -58,7 +58,7 @@ if options:
         st.write(l_title)
 
 
-    st.write(df)
+#     st.write(df)
 
 #     for l in range(10):
 #         l_title = df["title"].iloc(l)
