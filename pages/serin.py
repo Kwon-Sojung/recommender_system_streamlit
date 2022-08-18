@@ -6,10 +6,10 @@ from sklearn.metrics.pairwise import cosine_similarity
 from genre_model import genre_model
 from IPython.core.display import HTML
 
-from components import(
-    webtoon_info_component,
-    image_component
-)
+# from components import(
+#     webtoon_info_component,
+#     image_component
+# )
 
 
 st.set_page_config(
@@ -67,8 +67,8 @@ if options:
 #     df=pd.DataFrame(html_table[1:], columns=html_table[0])
     st.write(table)
 
-col1, col2 = webtoon_area.columns([0.8, 1.5])
-with col1:
-    image_component(webtoon_info["image"])
-with col2:
-    webtoon_info_component(webtoon_info)
+# col1, col2 = webtoon_area.columns([0.8, 1.5])
+# with col1:
+#     image_component(webtoon_info["image"])
+# with col2:
+#     webtoon_info_component(webtoon_info)
