@@ -53,8 +53,13 @@ if options:
                                        inplace=True)
 
     df = HTML(genre_recommend_df.to_html(escape=False,index=False, formatters=dict(웹툰=to_img_tag)))
-   
-    st.write(genre_recommend_df)
+    
+    for l in range(10):
+#         l_title = genre_recommend_df["title"].iloc(l)
+#         st.write(l_title)
+
+
+    st.write(df)
 
 #     for l in range(10):
 #         l_title = df["title"].iloc(l)
