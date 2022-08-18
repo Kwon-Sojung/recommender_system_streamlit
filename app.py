@@ -41,7 +41,7 @@ if not options:
     
    
 def to_img_tag(path):
-    return '<img src="'+ path + '" width="70" >'
+    return '<img src="'+ path + '" width="200" >'
 
 
 if options:
