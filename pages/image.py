@@ -48,12 +48,12 @@ def to_img_tag(path):
 
 
 if options:
-    genre_recommend_df = image_recommendation(options)
-    genre_recommend_df = genre_recommend_df[["title", "image", "genre", "artist", "story", "score"]]
-    genre_recommend_df.rename(columns={"title":"제목", "image":"웹툰", "genre":"장르", "artist":"작가", "story":"줄거리", "score":"평점"},
+    image_recommend_df = image_recommendation(options)
+    image_recommend_df = image_recommend_df[["title", "image", "genre", "artist", "story", "score"]]
+    image_recommend_df.rename(columns={"title":"제목", "image":"웹툰", "genre":"장르", "artist":"작가", "story":"줄거리", "score":"평점"},
                                        inplace=True)
 
-    table = HTML(genre_recommend_df.to_html(escape=False,index=False,
+    table = HTML(image_recommend_df.to_html(escape=False,index=False,
                                          float_format='{0:.4g}'.format,formatters=dict(웹툰=to_img_tag)))
 #     df = pd.read_html(table)
 #     df = pd.DataFrame(df)
