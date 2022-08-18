@@ -50,7 +50,7 @@ if options:
 
     df = HTML(genre_recommend_df.to_html(escape=False,formatters=dict(image=to_img_tag)))
     df = df.to_frame()
-    st.dataframe(df)
+    st.write(df)
 #     for l in range(10):
 #         l_title = df["title"].iloc(l)
 #         st.write(l_title)
