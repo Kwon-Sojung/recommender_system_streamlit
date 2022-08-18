@@ -2,8 +2,12 @@ import streamlit as st
 from PIL import Image
 import pandas as pd
 import numpy as np
+import random
+from math import dist
+import seaborn as sns
+import matplotlib.pyplot as plt
 from sklearn.metrics.pairwise import cosine_similarity
-from image_model import single_distance, image_recommendation,
+from image_model import single_distance, image_recommendation
 from IPython.core.display import HTML
 
 
