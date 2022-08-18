@@ -59,7 +59,7 @@ if options:
 
     table = HTML(genre_recommend_df.to_html(escape=False,index=False,
                                          float_format='{0:.4g}'.format,formatters=dict(웹툰=to_img_tag)))
-    table = pd.read_html(table)
+
 #     for l in range(10):
 #         l_title = genre_recommend_df["제목"].iloc(l)
 #         st.write(l_title)
