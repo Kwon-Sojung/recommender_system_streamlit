@@ -23,8 +23,8 @@ st.markdown("# 그림체 기반 웹툰 추천 📚")
 
 st.balloons()
 
-webtoon_df = pd.read_csv("webtoon_total_final.csv")
-title_list = webtoon_df["title"].tolist()
+df_origin = pd.read_csv("webtoon_total_final.csv")
+title_list = df_origin["title"].tolist()
 
 options = st.multiselect(
      '👇 선호하는 웹툰 제목을 입력하고 Enter를 눌러주세요. (복수 입력 가능하며, 카카오/네이버 웹툰만 입력 가능)',
