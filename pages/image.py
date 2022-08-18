@@ -15,7 +15,10 @@ from sklearn.metrics.pairwise import cosine_similarity
 
 from IPython.core.display import HTML
 
-st.markdown("# 그림체 기반 추천 🌈")
+title_name = []
+st.markdown("# 그림체 기반 웹툰 추천 📚")
+
+st.balloons()
 
 # 데이터 프레임 불러오고 전처리 하기
 df_origin = pd.read_csv("webtoon_total_final.csv")
@@ -25,29 +28,19 @@ raw_title_list = df_origin["title"].tolist()
 df = df_origin[['title','score', 'genre']]
 df.genre = df.genre.str.strip('['']')
 
-#데이터 프레임 체크 박스 만들기
-gd = GridOptionsBuilder.from_dataframe(df)
-gd.configure_selection(selection_mode='multiple', use_checkbox=True)
-gridoptions = gd.build()
-    
-grid_table = AgGrid(df, height=250, gridOptions=gridoptions,
-                    update_mode=GridUpdateMode.SELECTION_CHANGED)
+# input box 만들기
+options = st.multiselect(
+     '👇 선호하는 웹툰 제목을 입력하고 Enter를 눌러주세요. (복수 입력 가능하며, 카카오/네이버 웹툰만 입력 가능)',
+     title_list
+     )
+select_area = st.empty()
+st.write("""---""")
 
+if not options:
+    print(st.empty().info("입력 기다리는 중…⏳"))
+    image = Image.open('jamanchu_family.png')
+    st.image(image)
 
-   
-st.write('## Selected')
-
-selected_row = grid_table["selected_rows"]
-
-# 선택한 행의 제목들을 리스트 형태로 추출한다.
-st.dataframe(selected_row)
-
-df2 = pd.DataFrame(selected_row)
-
-if len(df2) == 0:
-    title_input=[]
-else:
-    title_input = df2.title.tolist()
 
 # 그림체 기반 추천 알고리즘
 df_euclidien_distance = pd.read_parquet('Euclidien_distance.parquet')
