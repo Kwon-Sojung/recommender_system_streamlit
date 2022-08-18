@@ -50,7 +50,6 @@ if options:
 
     df = HTML(genre_recommend_df.to_html(escape=False,formatters=dict(image=to_img_tag)))
 #     st.write(df)
-    for l in range(10):
-        d_title = df["title"].iloc[l]
-        st.write(d_title)
+    d_title = df["title"]
+    st.write(d_title)
     
