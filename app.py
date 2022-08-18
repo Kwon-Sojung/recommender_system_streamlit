@@ -50,7 +50,7 @@ if options:
     genre_recommend_df.rename(columns={"title":"제목", "image":"웹툰", "genre":"장르", "artist":"작가", "story":"줄거리"},
                                        inplace=True)
 
-    df = HTML(genre_recommend_df.to_html(escape=False,index=False, formatters=dict(image=to_img_tag)))
+    df = HTML(genre_recommend_df.to_html(escape=False,index=False, formatters=dict(웹툰=to_img_tag)))
 #     df = df.to_frame()
     st.write(df)
 #     for l in range(10):
