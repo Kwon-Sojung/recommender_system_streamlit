@@ -49,7 +49,7 @@ else:
     title_input = df2.title.tolist()
 
 # 그림체 기반 추천 알고리즘
-df_euclidien_distance = pd.read_parquet('Euclidean_distance.parquet', index_col='Unnamed: 0')
+df_euclidien_distance = pd.read_parquet('Euclidien_distance.parquet', index_col='Unnamed: 0')
     
 def single_distance(title):
     similar_df =df_euclidien_distance[[title]]
