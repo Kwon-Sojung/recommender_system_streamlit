@@ -62,7 +62,7 @@ if options:
 #         st.write(l_title)
 
 #     df=pd.DataFrame(html_table[1:], columns=html_table[0])
-    st.write(df)
+    st.write(df[1])
 
 
 
