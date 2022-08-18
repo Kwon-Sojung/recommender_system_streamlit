@@ -9,6 +9,7 @@ import pandas as pd
 import numpy as np
 import random
 from math import dist
+import pyarrow
 
 from sklearn.metrics.pairwise import cosine_similarity
 
