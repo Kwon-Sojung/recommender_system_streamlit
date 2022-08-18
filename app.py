@@ -54,7 +54,7 @@ if options:
                                        inplace=True)
 
     df = HTML(genre_recommend_df.to_html(escape=False,index=False,
-                                         float_format=".3f",formatters=dict(웹툰=to_img_tag)))
+                                         float_format='{0:.3g}'.format,formatters=dict(웹툰=to_img_tag)))
     
 #     for l in range(10):
 #         l_title = genre_recommend_df["제목"].iloc(l)
