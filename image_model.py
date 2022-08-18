@@ -5,7 +5,7 @@ import numpy as np
 import random
 from math import dist
 
-df_euclidien_distance = pd.read_csv('Euclidean_distance_final.csv', index_col='Unnamed: 0')
+df_euclidien_distance = pd.read_csv('Eucliden_distance_final.csv')
     
 def single_distance(title):
     similar_df =df_euclidien_distance[[title]]
