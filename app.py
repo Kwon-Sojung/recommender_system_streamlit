@@ -5,7 +5,7 @@ import numpy as np
 from sklearn.metrics.pairwise import cosine_similarity
 from genre_model import genre_model
 from IPython.core.display import HTML
-from bs4 import BeautifulSoup as bs
+
 
 
 st.set_page_config(
@@ -55,8 +55,8 @@ if options:
     df = HTML(genre_recommend_df.to_html(escape=False,index=False, formatters=dict(웹툰=to_img_tag)))
     
     for l in range(10):
-#         l_title = genre_recommend_df["title"].iloc(l)
-#         st.write(l_title)
+        l_title = genre_recommend_df["title"].iloc(l)
+        st.write(l_title)
 
 
     st.write(df)
