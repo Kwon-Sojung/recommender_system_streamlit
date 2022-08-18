@@ -3,7 +3,7 @@ from PIL import Image
 import pandas as pd
 import numpy as np
 from sklearn.metrics.pairwise import cosine_similarity
-from image_model import image_recommendation, single_distance
+from image_model import single_distance, image_recommendation,
 from IPython.core.display import HTML
 
 
