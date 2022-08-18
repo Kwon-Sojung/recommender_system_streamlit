@@ -45,7 +45,6 @@ def to_img_tag(path):
     return '<img src="'+ path + '" width="200" >'
 
 
-
 if options:
     genre_recommend_df = genre_model(options)
     genre_recommend_df = genre_recommend_df[["title", "image", "genre", "artist", "story"]]
@@ -55,7 +54,7 @@ if options:
     df = HTML(genre_recommend_df.to_html(escape=False,index=False, formatters=dict(웹툰=to_img_tag)))
     
     for l in range(10):
-        l_title = genre_recommend_df["title"].iloc(l)
+        l_title = genre_recommend_df["제목"].iloc(l)
         st.write(l_title)
 
 
