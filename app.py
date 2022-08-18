@@ -5,6 +5,7 @@ import numpy as np
 from sklearn.metrics.pairwise import cosine_similarity
 from genre_model import genre_model
 from IPython.core.display import HTML
+from bs4 import BeautifulSoup as bs
 
 
 st.set_page_config(
@@ -44,6 +45,7 @@ def to_img_tag(path):
     return '<img src="'+ path + '" width="200" >'
 
 
+
 if options:
     genre_recommend_df = genre_model(options)
     genre_recommend_df = genre_recommend_df[["title", "image", "genre", "artist", "story"]]
@@ -51,10 +53,14 @@ if options:
                                        inplace=True)
 
     df = HTML(genre_recommend_df.to_html(escape=False,index=False, formatters=dict(웹툰=to_img_tag)))
-#     df = df.to_frame()
-    st.write(df)
+    thumbnail = bs(df, "html.parser").find("img")
+    st.image(thumbnail)
+#     st.write(df)
+
 #     for l in range(10):
 #         l_title = df["title"].iloc(l)
 #         st.write(l_title)
+
+
     
     
