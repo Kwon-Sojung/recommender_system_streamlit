@@ -48,7 +48,7 @@ if options:
     genre_recommend_df = genre_model(options)
     genre_recommend_df = genre_recommend_df[["title", "image", "genre", "artist", "story"]]
 
-    df = HTML(genre_recommend_df.to_html(escape=False,formatters=dict(image=to_img_tag)))
+    df = HTML(genre_recommend_df.to_html(escape=False,index=False, formatters=dict(image=to_img_tag)))
 #     df = df.to_frame()
     st.write(df)
 #     for l in range(10):
