@@ -28,42 +28,32 @@ options = st.multiselect(
      )
 
 
-# st.write('You selected:', options)
+st.write('You selected:', options)
 
-select_area = st.empty()
-st.write("""---""")
+# select_area = st.empty()
+# st.write("""---""")
 
-if not options:
-    print(st.empty().info("입력 기다리는 중…⏳"))
-    image = Image.open('jamanchu_family.jpg')
-    st.image(image)
+# if not options:
+#     print(st.empty().info("입력 기다리는 중…⏳"))
+#     image = Image.open('jamanchu_family.jpg')
+#     st.image(image)
  
-# if options:
-#     genre_recommend_df = genre_model(options)
-#     st.write(genre_recommend_df)
     
    
-def to_img_tag(path):
-    return '<img src="'+ path + '" width="200" >'
+# def to_img_tag(path):
+#     return '<img src="'+ path + '" width="200" >'
 
 
-if options:
-    image_recommend_df = image_recommendation(options)
-    image_recommend_df = image_recommend_df[["title", "image", "genre", "artist", "story", "score"]]
-    image_recommend_df.rename(columns={"title":"제목", "image":"웹툰", "genre":"장르", "artist":"작가", "story":"줄거리", "score":"평점"},
-                                       inplace=True)
+# if options:
+#     image_recommend_df = image_recommendation(options)
+#     image_recommend_df = image_recommend_df[["title", "image", "genre", "artist", "story", "score"]]
+#     image_recommend_df.rename(columns={"title":"제목", "image":"웹툰", "genre":"장르", "artist":"작가", "story":"줄거리", "score":"평점"},
+#                                        inplace=True)
 
-    table = HTML(image_recommend_df.to_html(escape=False,index=False,
-                                         float_format='{0:.4g}'.format,formatters=dict(웹툰=to_img_tag)))
-#     df = pd.read_html(table)
-#     df = pd.DataFrame(df)
-  
-#     for l in range(10):
-#         l_title = genre_recommend_df["제목"].iloc(l)
-#         st.write(l_title)
+#     table = HTML(image_recommend_df.to_html(escape=False,index=False,
+#                                          float_format='{0:.4g}'.format,formatters=dict(웹툰=to_img_tag)))
 
-#     df=pd.DataFrame(html_table[1:], columns=html_table[0])
-    st.write(options)
+#     st.write(table)
 
 
 
