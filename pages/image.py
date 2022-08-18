@@ -35,7 +35,7 @@ st.write("""---""")
 
 if not options:
     print(st.empty().info("입력 기다리는 중…⏳"))
-    image = Image.open('wating.jpg')
+    image = Image.open('jamanchu_family.jpg')
     st.image(image)
  
 # if options:
