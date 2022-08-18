@@ -60,8 +60,10 @@ if options:
 #         l_title = genre_recommend_df["제목"].iloc(l)
 #         st.write(l_title)
 
+    df = pd.DataFrame(df)
 
-    st.write(df)
+
+    st.dataframe(df)
 
 
 
