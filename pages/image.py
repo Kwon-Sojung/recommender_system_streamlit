@@ -17,7 +17,7 @@ from IPython.core.display import HTML
 st.markdown("# 그림체 기반 추천 🌈")
 
 # 데이터 프레임 불러오고 전처리 하기
-df_origin = pd.read_csv("webtoon_total_final.csv")
+df_origin = pd.read_parquet("webtoon_total_final.csv")
 
 raw_title_list = df_origin["title"].tolist()
 
