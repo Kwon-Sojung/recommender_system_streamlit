@@ -5,7 +5,6 @@ import numpy as np
 from sklearn.metrics.pairwise import cosine_similarity
 from image_model import image_recommendation
 from IPython.core.display import HTML
-from math import dist
 
 
 
