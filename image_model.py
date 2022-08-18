@@ -9,7 +9,7 @@ df_euclidien_distance = pd.read_parquet('Euclidien_distance.parquet')
 df_euclidien_distance.genre = df_euclidien_distance.genre.str.strip('['']').str.replace("'","")
     
 def single_distance(title):
-    similar_df =df_euclidien_distance[[title]]
+    similar_df =df_euclidien_distance[[title]] #이게 뭐지?
     similar_df.columns = ['title']
     return similar_df
 
