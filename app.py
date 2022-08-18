@@ -61,7 +61,7 @@ if options:
 #         st.write(l_title)
 
 
-#     st.write(df)
+    st.write(df)
 
 
 
