@@ -4,6 +4,7 @@ import pandas as pd
 import numpy as np
 import random
 from math import dist
+import pyarrow
 
 df_euclidien_distance = pd.read_parquet('Euclidien_distance_final.parquet')
     
