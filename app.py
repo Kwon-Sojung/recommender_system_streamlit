@@ -53,17 +53,17 @@ if options:
     genre_recommend_df.rename(columns={"title":"제목", "image":"웹툰", "genre":"장르", "artist":"작가", "story":"줄거리", "score":"평점"},
                                        inplace=True)
 
-    table = genre_recommend_df.to_html(escape=False,index=False,
-                                         float_format='{0:.4g}'.format,formatters=dict(웹툰=to_img_tag))
-    df = pd.read_html(table)
-    df = pd.DataFrame(df)
+    table = HTML(genre_recommend_df.to_html(escape=False,index=False,
+                                         float_format='{0:.4g}'.format,formatters=dict(웹툰=to_img_tag)))
+#     df = pd.read_html(table)
+#     df = pd.DataFrame(df)
   
 #     for l in range(10):
 #         l_title = genre_recommend_df["제목"].iloc(l)
 #         st.write(l_title)
 
 #     df=pd.DataFrame(html_table[1:], columns=html_table[0])
-    st.write(df)
+    st.write(table)
 
 
 
