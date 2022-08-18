@@ -46,7 +46,7 @@ def to_img_tag(path):
 
 if options:
     genre_recommend_df = genre_model(options)
-    genre_recommend_df = genre_recommend_df[["title","image"]]
+    genre_recommend_df = genre_recommend_df[["title", "image", "genre", "artist", "story"]]
 
     df = HTML(genre_recommend_df.to_html(escape=False,formatters=dict(image=to_img_tag)))
 
