@@ -47,6 +47,8 @@ def to_img_tag(path):
 if options:
     genre_recommend_df = genre_model(options)
     genre_recommend_df = genre_recommend_df[["title", "image", "genre", "artist", "story"]]
+    genre_recommend_df.rename(columns={"title":"제목", "image":"웹툰", "genre":"장르", "artist":"작가", "story":"줄거리"},
+                                       inplace=True)
 
     df = HTML(genre_recommend_df.to_html(escape=False,index=False, formatters=dict(image=to_img_tag)))
 #     df = df.to_frame()
