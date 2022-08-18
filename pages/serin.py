@@ -66,7 +66,7 @@ if options:
 
 #     df=pd.DataFrame(html_table[1:], columns=html_table[0])
     st.write(table)
-
+    st.write(type(table))
 # col1, col2 = webtoon_area.columns([0.8, 1.5])
 # with col1:
 #     image_component(webtoon_info["image"])
