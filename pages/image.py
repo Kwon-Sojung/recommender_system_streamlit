@@ -36,10 +36,10 @@ options = st.multiselect(
 select_area = st.empty()
 st.write("""---""")
 
-if not options:
-    print(st.empty().info("입력 기다리는 중…⏳"))
-    image = Image.open('jamanchu_family.png')
-    st.image(image)
+# if not options:
+#     print(st.empty().info("입력 기다리는 중…⏳"))
+#     image = Image.open('jamanchu_family.png')
+#     st.image(image)
 
 
 # 그림체 기반 추천 알고리즘
