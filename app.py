@@ -15,7 +15,7 @@ st.set_page_config(
 )
 
 title_name = []
-st.markdown("# 장르 기반 웹툰 추천 📚")
+st.markdown("# 유사한 장르의 웹툰을 추천드려요 📚")
 
 st.balloons()
 
