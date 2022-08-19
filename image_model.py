@@ -6,7 +6,7 @@ import random
 from math import dist
 
 df_euclidien_distance = pd.read_parquet('Euclidien_distance.parquet')
-df_euclidien_distance.genre = df_euclidien_distance.genre.str.strip('['']').str.replace("'","")
+
     
 def single_distance(title):
     similar_df =df_euclidien_distance[[title]] #이게 뭐지?
@@ -40,6 +40,7 @@ def image_recommendation(title_input):
     final_df = pd.DataFrame(columns=['title', 'artist', 
                                      'genre', 'story',
                                      'image', 'from', 'score'])
+    final_df.genre = final_df.genre.str.strip('['']').str.replace("'","")
     
     for r in result_title_list:
         tmp = df_origin[df_origin['title']== r]
