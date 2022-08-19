@@ -1,58 +1,53 @@
 import streamlit as st
-from st_aggrid import AgGrid, GridUpdateMode
-from st_aggrid.grid_options_builder import GridOptionsBuilder
-
-import seaborn as sns
-import matplotlib.pyplot as plt
-import koreanize_matplotlib
+from PIL import Image
 import pandas as pd
 import numpy as np
 import random
 from math import dist
-
+import seaborn as sns
+import matplotlib.pyplot as plt
 from sklearn.metrics.pairwise import cosine_similarity
-
+# from image_model import single_distance, image_recommendation
 from IPython.core.display import HTML
 
-st.markdown("# 그림체 기반 추천 🌈")
 
-# 데이터 프레임 불러오고 전처리 하기
+
+st.set_page_config(
+    page_title="Webtoon Recommender App Page Introduction",
+    page_icon="📚",
+    layout="wide",
+)
+
+title_name = []
+st.markdown("# 비슷한 그림체의 웹툰을 추천해드려요 📚")
+
+st.balloons()
+
 df_origin = pd.read_csv("webtoon_total_final.csv")
+title_list = df_origin["title"].tolist()
 
-raw_title_list = df_origin["title"].tolist()
-
-df = df_origin[['title','score', 'genre']]
-df.genre = df.genre.str.strip('['']')
-
-#데이터 프레임 체크 박스 만들기
-gd = GridOptionsBuilder.from_dataframe(df)
-gd.configure_selection(selection_mode='multiple', use_checkbox=True)
-gridoptions = gd.build()
-    
-grid_table = AgGrid(df, height=250, gridOptions=gridoptions,
-                    update_mode=GridUpdateMode.SELECTION_CHANGED)
+options = st.multiselect(
+     '👇 선호하는 웹툰 제목을 입력하고 Enter를 눌러주세요. (복수 입력 가능하며, 카카오/네이버 웹툰만 입력 가능)',
+     title_list
+     )
 
 
-   
-st.write('## Selected')
+# st.write('You selected:', options)
 
-selected_row = grid_table["selected_rows"]
+select_area = st.empty()
+st.write("""---""")
 
-# 선택한 행의 제목들을 리스트 형태로 추출한다.
-st.dataframe(selected_row)
-
-df2 = pd.DataFrame(selected_row)
-
-if len(df2) == 0:
-    title_input=[]
-else:
-    title_input = df2.title.tolist()
-
-# 그림체 기반 추천 알고리즘
-df_euclidien_distance = pd.read_csv('Euclidean_distance_final.csv', index_col='Unnamed: 0')
+if not options:
+    print(st.empty().info("입력 기다리는 중…⏳"))
+    image = Image.open('jamanchu_family.jpg')
+    st.image(image)
+ 
+###
+df_euclidien_distance = pd.read_parquet('Euclidien_distance.parquet')
+# df_euclidien_distance.genre = df_euclidien_distance.genre.str.strip('['']').str.replace("'","")
     
 def single_distance(title):
-    similar_df =df_euclidien_distance[[title]]
+    similar_df =df_euclidien_distance[[title]] #what is this
     similar_df.columns = ['title']
     return similar_df
 
@@ -87,18 +82,33 @@ def image_recommendation(title_input):
     for r in result_title_list:
         tmp = df_origin[df_origin['title']== r]
         final_df = pd.concat([final_df,tmp])
-
+    
+    final_df['genre'] = final_df['genre'].str.strip('['']').str.replace("'","")
     return final_df
 
 
-g = image_recommendation(title_input)
+###   
+def to_img_tag(path):
+    return '<img src="'+ path + '" width="200" >'
 
-if len(g) == 0:
-    st.write('웹툰 항목에서 최소 하나의 웹툰을 선택해주세요!')
+
+if options:
+    image_recommend_df = image_recommendation(options)
+    image_recommend_df = image_recommend_df[["title", "image", "genre", "artist", "story", "score"]]
+    image_recommend_df.rename(columns={"title":"제목", "image":"웹툰", "genre":"장르", "artist":"작가", "story":"줄거리", "score":"평점"},
+                                       inplace=True)
+
+    table = HTML(image_recommend_df.to_html(escape=False,index=False,
+                                         float_format='{0:.4g}'.format,formatters=dict(웹툰=to_img_tag)))
+
+    st.write(table)
+
+
+
     
-elif len(g) != 0:
-    df_result = g[['title', 'artist', 'genre','story','score','image']]
-    def to_img_tag(path):
-        return '<img src="'+ path + '" width="100" >'
-    a= HTML(df_result.to_html(escape=False,formatters=dict(image=to_img_tag)))
-    st.write(a)
+
+
+
+
+    
+    
