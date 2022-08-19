@@ -83,7 +83,7 @@ def image_recommendation(title_input):
         tmp = df_origin[df_origin['title']== r]
         final_df = pd.concat([final_df,tmp])
     
-    final_df['genre'] = final_df['genre'].str.strip('['']').str.replace("'")
+    final_df['genre'] = final_df['genre'].str.strip('['']').str.replace("'","")
     return final_df
 
 
