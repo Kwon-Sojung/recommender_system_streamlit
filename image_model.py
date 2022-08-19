@@ -40,10 +40,11 @@ def image_recommendation(title_input):
     final_df = pd.DataFrame(columns=['title', 'artist', 
                                      'genre', 'story',
                                      'image', 'from', 'score'])
-    final_df.genre = final_df.genre.str.strip('['']').str.replace("'","")
+    
     
     for r in result_title_list:
         tmp = df_origin[df_origin['title']== r]
         final_df = pd.concat([final_df,tmp])
+        final_df.genre = final_df.genre.str.strip('['']').str.replace("'","")
 
     return final_df
